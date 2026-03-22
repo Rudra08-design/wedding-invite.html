@@ -12,7 +12,7 @@ body {
   margin: 0;
   font-family: 'Noto Serif Bengali', serif;
   overflow: hidden;
-  background: #ffe4e9;
+  background: url('https://www.transparenttextures.com/patterns/paper-fibers.png'), #ffccd5;
 }
 
 .slide {
@@ -26,28 +26,33 @@ body {
   color: #b3003b;
 }
 
-.slide.active { display: block; }
+.slide.active { display: flex; justify-content: center; align-items: center; flex-direction: column; }
 
-.slide img {
-  height: 100%;
+.frame {
+  border: 8px solid #b3003b;
+  padding: 10px;
+  border-radius: 20px;
+  background: #fff0f3;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  max-width: 80%;
+}
+
+.frame img {
   width: 100%;
-  object-fit: cover;
+  border-radius: 10px;
 }
 
 .message {
-  position: absolute;
-  bottom: 10%;
-  width: 100%;
+  margin-top: 20px;
   font-size: 22px;
   font-weight: bold;
   color: #b3003b;
   text-shadow: 1px 1px 5px white;
+  max-width: 80%;
 }
 
 .next-btn {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  margin-top: 20px;
   background: #ff3366;
   color: white;
   border: none;
@@ -93,19 +98,25 @@ body {
 
 <!-- SLIDES -->
 <div class="slide active">
-  <img src="image1.jpg">
+  <div class="frame">
+    <img src="image1.jpg">
+  </div>
   <div class="message">We'll get married... I'll be the man of your dreams very soon my love ❤️</div>
   <button class="next-btn" onclick="nextSlide()">Next</button>
 </div>
 
 <div class="slide">
-  <img src="image2.jpg">
+  <div class="frame">
+    <img src="image2.jpg">
+  </div>
   <div class="message">We're destined to get married very very soon... I'll make it up for everything ❤️</div>
   <button class="next-btn" onclick="nextSlide()">Next</button>
 </div>
 
 <div class="slide">
-  <img src="image3.jpg">
+  <div class="frame">
+    <img src="image3.jpg">
+  </div>
   <div class="message">RUDRA WEDS BIPASHA ❤️</div>
 </div>
 
@@ -131,4 +142,3 @@ for (let i = 0; i < 30; i++) {
 
 </body>
 </html>
-
