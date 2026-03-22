@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Noto Serif Bengali', serif;
+  overflow: hidden;
+  background: #ffe4e9;
+}
+
+.slide {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: #b3003b;
+}
+
+.slide.active { display: block; }
+
+.slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.message {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  font-size: 22px;
+  font-weight: bold;
+  color: #b3003b;
+  text-shadow: 1px 1px 5px white;
+}
+
+.next-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #ff3366;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  transform: rotate(45deg);
+  animation: float 6s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before { top: -5px; left: 0; }
+.heart::after { left: -5px; top: 0; }
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- MUSIC -->
+<iframe width="0" height="0" src="https://www.youtube.com/embed/tb8gf_5Sugw?autoplay=1&loop=1" frameborder="0" allow="autoplay"></iframe>
+
+<!-- SLIDES -->
+<div class="slide active">
+  <img src="image1.jpg">
+  <div class="message">We'll get married... I'll be the man of your dreams very soon my love ❤️</div>
+  <button class="next-btn" onclick="nextSlide()">Next</button>
+</div>
+
+<div class="slide">
+  <img src="image2.jpg">
+  <div class="message">We're destined to get married very very soon... I'll make it up for everything ❤️</div>
+  <button class="next-btn" onclick="nextSlide()">Next</button>
+</div>
+
+<div class="slide">
+  <img src="image3.jpg">
+  <div class="message">RUDRA WEDS BIPASHA ❤️</div>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+
+function nextSlide() {
+  slides[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+}
+
+// Generate hearts
+for (let i = 0; i < 30; i++) {
+  let heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
+
